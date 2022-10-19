@@ -1,0 +1,4 @@
+#entry-container > img {
+    width: var(--text-font-size);
+    height: var(--text-font-size);
+}

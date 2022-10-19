@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=佛學大辭典
+GenericName=佛學大辭典
+Exec=dfb-dict/dfb-dict --no-sandbox
+Icon=${SNAP}/meta/gui/icon.png
+Type=Application
+Terminal=false
+Categories=None;
+StartupWMClass=dfb-dict

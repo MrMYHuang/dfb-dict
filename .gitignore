@@ -1,0 +1,11 @@
+node_modules
+dist
+build
+buildElectron/*.js
+dfb-dict-pwa
+*.DS_Store
+and
+win
+*.provisionprofile
+*.xcuserdatad
+public/assets.zip

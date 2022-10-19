@@ -1,0 +1,12 @@
+<script>
+    const subpaths = window.location.pathname.split('/');
+    let homeDir = '';
+    let route = '';
+    if (subpaths[1] === 'dfb-dict') {
+        homeDir = subpaths[1];
+        route = '/' + subpaths.splice(2).join('/');
+    } else {
+        route = window.location.pathname;
+    }
+    window.location = `${window.location.origin}/${homeDir}?route=${route}&query=${encodeURIComponent(window.location.search)}`;
+</script>

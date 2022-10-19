@@ -1,0 +1,12 @@
+{
+  "extends": "electronBuilderConfigs/common.json",
+  "extraResources": [
+    {
+      "from": "electronBuilderConfigs",
+      "to": ".",
+      "filter": [
+        "IsSnap.txt"
+      ]
+    }
+  ]
+}

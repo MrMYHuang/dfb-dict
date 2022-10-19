@@ -1,0 +1,22 @@
+{
+  "extends": "electronBuilderConfigs/common.json",
+  "extraResources": [
+    {
+      "from": "./iOS/iOS",
+      "to": ".",
+      "filter": ["**/*", "!**/Base.lproj/*"]
+    }
+  ],
+  "mac": {
+    "type": "development",
+    "identity": null
+  },
+  "masDev": {
+    "type": "development",
+    "artifactName": "${name}_${version}_masDev.${ext}",
+    "hardenedRuntime": false,
+    "entitlements": "buildElectron/entitlements.mas.plist",
+    "entitlementsInherit": "buildElectron/entitlements.mas.inherit.plist",
+    "provisioningProfile": "dfb-dictdev.provisionprofile"
+  }
+}

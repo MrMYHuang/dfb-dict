@@ -1,0 +1,27 @@
+{
+  "short_name": "佛學大辭典",
+  "name": "佛學大辭典",
+  "icons": [
+    {
+      "src": "assets/icon/icon.png",
+      "type": "image/png",
+      "sizes": "1024x1024"
+    },
+    {
+      "src": "assets/icon/icon.png",
+      "type": "image/png",
+      "sizes": "1024x1024",
+      "purpose": "maskable"
+    }
+  ],
+  "scope": "/dfb-dict/",
+  "start_url": "/dfb-dict/",
+  "url_handlers": [
+    {
+      "origin": "https://myhpwa.github.io"
+    }
+  ],
+  "display": "standalone",
+  "theme_color": "black",
+  "background_color": "black"
+}

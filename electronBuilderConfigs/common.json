@@ -1,0 +1,20 @@
+{
+  "appId": "io.github.myhpwa.dfb-dict",
+  "files": [
+    "buildElectron/**/*",
+    "package.json"
+  ],
+  "icon": "buildElectron/icon.icns",
+  "linux": {
+    "artifactName": "${name}_${version}_linux_${arch}.${ext}",
+    "desktop": {
+      "StartupWMClass": "dfb-dict"
+    },
+    "category": "None"
+  },
+  "mac": {
+    "mergeASARs": false,
+    "category": "public.app-category.reference",
+    "minimumSystemVersion": "10.11"
+  }
+}

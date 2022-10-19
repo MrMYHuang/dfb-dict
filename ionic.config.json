@@ -1,0 +1,7 @@
+{
+  "name": "dfb-dict",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
