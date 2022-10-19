@@ -400,13 +400,13 @@
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Base.lproj/Info.plist";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.word-games";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.myhpwa.dfb-dict";
 				PRODUCT_NAME = "dfb-dict";
 				SDKROOT = iphoneos;
@@ -429,13 +429,13 @@
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Base.lproj/Info.plist";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.word-games";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.myhpwa.dfb-dict";
 				PRODUCT_NAME = "dfb-dict";
 				SDKROOT = iphoneos;
