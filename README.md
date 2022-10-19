@@ -40,10 +40,7 @@
 
 ## <a id='install'>安裝</a>
 
-此 app 目前有2種取得、安裝方式：
-
   1. Chrome, Safari 網頁瀏覽器。
-  2. App 商店。
 
 ### <a id='web-app'>從瀏覽器開啟/安裝</a>
 請用 Chrome (Windows, macOS, Linux, Android 使用者)、Safari (iOS 使用者)瀏覽器開啟以下網址：
@@ -77,32 +74,6 @@ https://myhpwa.github.io/dfb-dict
 3. App 安裝完，出現在主畫面的圖示：
 
 <img src='https://github.com/MrMYHuang/dfb-dict/raw/main/docs/images/Safari/AppIcon.png' width='50%' />
-
-### <a id='storeApp'>從 App 商店安裝</a>
-#### iOS 14.0+ - 使用 App Store
-<a href='https://apps.apple.com/app/id1634911913' target='_blank'>
-<img width="auto" height='60px' src='https://github.com/MrMYHuang/dfb-dict/raw/main/docs/images/Download_on_the_App_Store_Badge_CNTC_RGB_blk_100217.svg'/>
-</a>
-
-#### macOS 10.11+ - 使用 Apple App Store
-<a href='https://apps.apple.com/app/id1634911913' target='_blank'>
-<img width="auto" height='60px' src='https://github.com/MrMYHuang/dfb-dict/raw/main/docs/images/Download_on_the_Mac_App_Store_Badge_CNTC_RGB_blk_100217.svg'/>
-</a>
-
-#### Android - 使用 Google Play Store
-<a href='https://play.google.com/store/apps/details?id=io.github.myhpwa.dfb-dict' target='_blank'>
-<img width="auto" height='60px' alt='Google Play立即下載' src='https://github.com/MrMYHuang/dfb-dict/raw/main/docs/images/zh-tw_badge_web_generic.png'/>
-</a>
-
-#### Windows 10+ - 使用 Microsoft Store
-<a href='https://www.microsoft.com/store/apps/9N6PT9RL8P1D' target='_blank'>
-<img width="auto" height='60px' src='https://developer.microsoft.com/store/badges/images/Chinese-Traditional_get-it-from-MS.png' alt='Chinese Traditional badge'/>
-</a>
-
-#### Linux - 使用 Snap Store
-<a href='https://snapcraft.io/dfb-dict' target='_blank'>
-<img width="auto" height='60px' src='https://github.com/MrMYHuang/dfb-dict/raw/main/docs/images/[TW]-snap-store-black@2x.png' />
-</a>
 
 ## <a id='history'>版本歷史</a>
 * PWA 1.0.0:
