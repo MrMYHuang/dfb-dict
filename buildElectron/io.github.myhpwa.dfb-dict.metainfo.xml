@@ -2,16 +2,14 @@
 <component type="desktop-application">
   <id>io.github.myhpwa.dfb-dict</id>
   <name>丁福保佛學大辭典</name>
-  <summary>隨機顯示一則聖嚴師父的108自在語，也許對您有所啟發！</summary>
+  <summary>丁福保佛學大辭典，支援離線瀏覽！</summary>
   <metadata_license>MIT</metadata_license>
   <project_license>MIT</project_license>
   <description>
     <p>
-      丁福保佛學大辭典 (Sheng-Yen's 108 Quotes)，簡寫 dfb-dict，是一款可隨機或自定顯示一則聖嚴師父的108自在語。使用範例：使用者可每天隨機選擇一則自在語，作為參考，也許會有所啟發。
+      丁福保佛學大辭典 (Ding Fubao: Dictionary of Buddhist Studies) 由丁福保居士耗時八年编著而成，譯自日本人織田德能的《佛學大辭典》，是刪除了日本佛教相關資料及文獻出處之後所成的節譯本。于1922年正式出版，收錄條目三萬多個，360多萬字。
 
-      App 提供書籤，可將您最喜歡的自在語存下，方便下次查閱。
-
-      App 提供閱讀記錄，會記下已讀過的自在語，另有幾個閱讀成就解鎖。
+      此 app 特色：隨機或自定顯示一則佛學辭定義、書籤功能、網址分享、離線瀏覽(初次啟動須連網)、佈景主題切換、字型調整、跨平台、無廣告、開放原始碼。
     </p>
   </description>
   <url type="homepage">https://github.com/MrMYHuang/dfb-dict</url>
@@ -23,7 +21,7 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
-    <release version="1.0.0" date="2022-10-18">
+    <release version="1.0.0" date="2022-10-19">
       <description>
         <ul>
           <li>第一版。</li>
