@@ -17,6 +17,6 @@
     "hardenedRuntime": false,
     "entitlements": "buildElectron/entitlements.mas.plist",
     "entitlementsInherit": "buildElectron/entitlements.mas.inherit.plist",
-    "provisioningProfile": "dfb-dictdev.provisionprofile"
+    "provisioningProfile": "dfbdictdev.provisionprofile"
   }
 }

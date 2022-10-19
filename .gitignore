@@ -9,3 +9,4 @@ win
 *.provisionprofile
 *.xcuserdatad
 public/assets.zip
+buildElectron/locales
