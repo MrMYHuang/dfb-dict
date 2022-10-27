@@ -69,7 +69,7 @@ class _EntryPage extends React.Component<PageProps, State> {
   async getQuote() {
     await new Promise<void>((ok) => {
       const timer = setInterval(() => {
-        if (!this.props.tmpSettings.loadingData) {
+        if (!this.props.tmpSettings.loadingData && this.props.settings.appInitialized) {
           clearInterval(timer);
           ok();
         }

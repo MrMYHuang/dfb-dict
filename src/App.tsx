@@ -159,23 +159,16 @@ class _AppOrig extends React.Component<AppOrigProps, State> {
 
     let showToastInit = false;
     let toastMessageInit = '';
-    IndexedDbFuncs.open().then(() => {
-      let updateAssets = Promise.resolve(false);
-      if (this.props.settings.assetsVersion < Globals.assetsVersion) {
-        updateAssets = Globals.updateAssets(this.props.dispatch).then(() => true);
-      }
-      updateAssets.then((forceUpdate) => {
-        return OfflineDb.init(forceUpdate);
-      }).then(() => {
-        this.props.dispatch({
-          type: "TMP_SET_KEY_VAL",
-          key: 'loadingData',
-          val: false,
-        });
-      }).catch((error) => {
-        console.error(error);
+
+    if (this.props.settings.appInitialized) {
+      this.openDict();
+    } else {
+      this.props.dispatch({
+        type: "TMP_SET_KEY_VAL",
+        key: 'loadingData',
+        val: false,
       });
-    });
+    }
 
     this.state = {
       showUpdateAlert: false,
@@ -202,6 +195,31 @@ class _AppOrig extends React.Component<AppOrigProps, State> {
         }
       });
     }
+  }
+
+  async openDict() {
+    this.props.dispatch({
+      type: "TMP_SET_KEY_VAL",
+      key: 'loadingData',
+      val: true,
+    });
+    return IndexedDbFuncs.open().then(() => {
+      let updateAssets = Promise.resolve(false);
+      if (this.props.settings.assetsVersion < Globals.assetsVersion) {
+        updateAssets = Globals.updateAssets(this.props.dispatch).then(() => true);
+      }
+      updateAssets.then((forceUpdate) => {
+        return OfflineDb.init(forceUpdate);
+      }).catch((error) => {
+        this.setState({ showToast: true, toastMessage: `Error! ${error}` });
+      }).finally(() => {
+        this.props.dispatch({
+          type: "TMP_SET_KEY_VAL",
+          key: 'loadingData',
+          val: false,
+        });
+      });
+    });
   }
 
   restoreAppSettings() {
@@ -316,6 +334,28 @@ class _AppOrig extends React.Component<AppOrigProps, State> {
               handler: (value) => {
                 this.setState({
                   showUpdateAlert: false,
+                });
+              },
+            },
+          ]}
+        />
+
+        <IonAlert
+          cssClass='uiFont'
+          backdropDismiss={false}
+          isOpen={!this.props.settings.appInitialized}
+          header='初次啟動'
+          message='須下載離線資料，請按確定以繼續'
+          buttons={[
+            {
+              text: this.props.t('Ok'),
+              cssClass: 'primary uiFont',
+              handler: async (value) => {
+                await this.openDict();
+                this.props.dispatch({
+                  type: "SET_KEY_VAL",
+                  key: 'appInitialized',
+                  val: true,
                 });
               },
             },

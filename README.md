@@ -84,6 +84,11 @@ https://myhpwa.github.io/dfb-dict
 <img width="auto" height='60px' src='https://github.com/MrMYHuang/dfb-dict/raw/main/docs/images/Download_on_the_App_Store_Badge_CNTC_RGB_blk_100217.svg'/>
 </a>
 
+#### macOS 10.11+ - 使用 Apple App Store
+<a href='https://apps.apple.com/app/id6443910034' target='_blank'>
+<img width="auto" height='60px' src='https://github.com/MrMYHuang/dfb-dict/raw/main/docs/images/Download_on_the_Mac_App_Store_Badge_CNTC_RGB_blk_100217.svg'/>
+</a>
+
 #### Android - 使用 Google Play Store
 <a href='https://play.google.com/store/apps/details?id=io.github.myhpwa.dfbdict' target='_blank'>
 <img width="auto" height='60px' alt='Google Play立即下載' src='https://github.com/MrMYHuang/dfb-dict/raw/main/docs/images/zh-tw_badge_web_generic.png'/>
@@ -100,6 +105,9 @@ https://myhpwa.github.io/dfb-dict
 </a>
 
 ## <a id='history'>版本歷史</a>
+* PWA 1.1.0:
+  * [新增] 初次啟動會提示將下載離線資料。
+
 * PWA 1.0.0:
   * 第1版。
 

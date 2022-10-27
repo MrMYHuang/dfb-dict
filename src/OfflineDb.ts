@@ -126,6 +126,10 @@ async function getDictEntries() {
 }
 
 function senseToStr(sense: DictEntrySense) {
+    if (sense.def === '') {
+        return '';
+    }
+
     let defOrig = sense.def.replace(new RegExp(figurePlaceholderPath, 'g'), figurePath);
     const defsReverse: string[] = [];
     sense.xr && sense.xr.reverse().forEach((xr) => {
