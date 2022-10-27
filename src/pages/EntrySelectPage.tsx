@@ -87,6 +87,14 @@ class _EntryPage extends React.Component<PageProps, State> {
 
             <div style={{ padding: '20px 0px' }}>
               <IonButton className='uiFont' fill='outline' shape='round' size='large' onClick={async () => {
+                this.props.history.push(`${Globals.pwaUrl}/search`);
+              }}>{this.props.t('搜尋選辭')}</IonButton>
+            </div>
+
+            <div className='uiFont'>---------- or ----------</div>
+
+            <div style={{ padding: '20px 0px' }}>
+              <IonButton className='uiFont' fill='outline' shape='round' size='large' onClick={async () => {
                 const dictEntries = await OfflineDb.getDictEntries();
                 const entryId = Math.floor(Math.random() * dictEntries.length);
 

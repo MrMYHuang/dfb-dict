@@ -107,6 +107,7 @@ https://myhpwa.github.io/dfb-dict
 ## <a id='history'>版本歷史</a>
 * PWA 1.1.0:
   * [新增] 初次啟動會提示將下載離線資料。
+  * [優化] 首頁。
 
 * PWA 1.0.0:
   * 第1版。

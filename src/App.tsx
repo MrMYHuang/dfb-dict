@@ -18,7 +18,7 @@ import queryString from 'query-string';
 import { withTranslation, WithTranslation } from 'react-i18next';
 
 import getSavedStore from './redux/store';
-import { bookmark, settings, chatbox, search } from 'ionicons/icons';
+import { bookmark, settings, search, book } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -294,7 +294,7 @@ class _AppOrig extends React.Component<AppOrigProps, State> {
             </IonRouterOutlet>
             <IonTabBar slot="bottom">
               <IonTabButton tab="entry" href={`${Globals.pwaUrl}/entry/select`}>
-                <IonIcon icon={chatbox} />
+                <IonIcon icon={book} />
               </IonTabButton>
               <IonTabButton tab="search" href={`${Globals.pwaUrl}/search`}>
                 <IonIcon icon={search} />
