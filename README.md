@@ -105,6 +105,10 @@ https://myhpwa.github.io/dfb-dict
 </a>
 
 ## <a id='history'>版本歷史</a>
+* MAS 1.0.1:
+  * [修正] 視窗標題。
+  * [優化] Electron 22.0.0.
+
 * PWA 1.1.0:
   * [新增] 初次啟動會提示將下載離線資料。
   * [優化] 首頁。
