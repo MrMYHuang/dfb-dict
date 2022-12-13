@@ -59,11 +59,11 @@ https://myhpwa.github.io/dfb-dict
 此 progressive web app (PWA)，可不安裝直接在網頁瀏覽器執行，或安裝至手機、平板、筆電、桌機。建議安裝，以避免瀏覽器定期清除快取，導致書籤資料不見！
 
 #### Windows, macOS, Linux, Android - 使用 Chrome 安裝
-使用 Chrome 瀏覧器（建議最新版）開啟上述PWA網址後，網址列會出現一個加號，如圖所示：
+使用 Chrome 瀏覧器（建議最新版）開啟上述 PWA 網址後，網址列會出現一圖示：
 
 <img src='https://github.com/MrMYHuang/dfb-dict/raw/main/docs/images/ChromeInstall.png' width='50%' />
 
-點擊它，以完成安裝。安裝完後會在桌面出現"丁福保佛學大辭典" app圖示。
+點擊它，以完成安裝。安裝完後會在桌面出現"丁福保佛學大辭典" app 圖示。
 
 #### iOS - 使用 Safari安裝
 1. 使用 Safari 開啟 web app 網址，再點擊下方中間的"分享"圖示：
