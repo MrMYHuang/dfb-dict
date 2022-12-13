@@ -15,7 +15,7 @@
 
 * <a id='shareAppLink'>網址分享</a>
   1. 用瀏覽器開啟此 app 並開啟某辭後，可複製其網址分享給別人開啟。
-  2. App 內建"分享此頁"功能，可複製某辭連結至作業系統剪貼簿或產生 QR code，可分享給其他人。
+  2. App 內建 "分享此頁" 功能，可複製某辭連結至作業系統剪貼簿或產生 QR code，可分享給其他人。
 
 * 離線瀏覽
 
@@ -63,14 +63,14 @@ https://myhpwa.github.io/dfb-dict
 
 <img src='https://github.com/MrMYHuang/dfb-dict/raw/main/docs/images/ChromeInstall.png' width='50%' />
 
-點擊它，以完成安裝。安裝完後會在桌面出現"丁福保佛學大辭典" app 圖示。
+點擊它，以完成安裝。安裝完後會在桌面出現 "佛學大辭典" app 圖示。
 
 #### iOS - 使用 Safari安裝
-1. 使用 Safari 開啟 web app 網址，再點擊下方中間的"分享"圖示：
+1. 使用 Safari 開啟 web app 網址，再點擊下方中間的 "分享" 圖示：
 
 <img src='https://github.com/MrMYHuang/dfb-dict/raw/main/docs/images/Safari/OpenAppUrl.png' width='50%' />
 
-2. 滑動頁面至下方，點選"加入主畫面" (Add to Home Screen)：
+2. 滑動頁面至下方，點選 "加入主畫面" (Add to Home Screen)：
 
 <img src='https://github.com/MrMYHuang/dfb-dict/raw/main/docs/images/Safari/AddToHomeScreen.png' width='50%' />
 
