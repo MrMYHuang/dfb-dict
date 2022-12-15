@@ -30,7 +30,7 @@
     "Export": "匯出",
     "Import": "匯入",
     "Reset": "重置",
-    "resetMessage": "重置會還原 app 設定至預設值並清除所有輪盤！確定重置？",
+    "resetMessage": "重置會還原 app 設定至預設值並清除所有離線資料！確定重置？",
     "resetSuccess": "清除成功!",
     "themeGreen": "綠底",
     "themeDark": "暗色",
