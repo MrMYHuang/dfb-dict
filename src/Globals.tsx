@@ -91,7 +91,9 @@ function disableIosSafariCallout(this: Window) {
   const s = this.getSelection();
   if ((s?.rangeCount || 0) > 0) {
     const r = s?.getRangeAt(0);
+    // Unselect text to dismiss callout.
     s?.removeAllRanges();
+    // Reselect text without callout!
     setTimeout(() => {
       s?.addRange(r!);
     }, 50);

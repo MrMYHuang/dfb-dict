@@ -36,6 +36,7 @@ interface PageProps extends Props, RouteComponentProps<{
 }> { }
 
 class _EntryPage extends React.Component<PageProps, State> {
+  lastSelectedText: String | null = null;
   constructor(props: any) {
     super(props);
     this.state = {
@@ -52,9 +53,19 @@ class _EntryPage extends React.Component<PageProps, State> {
       showUnlockToast: false,
       unlockToastMessage: '',
     };
-
     document.onselectionchange = () => {
-      this.setState({ showSearchSelectedTextButton: this.getSelectedText() !== null });
+      const selectedText = this.getSelectedText();
+
+      // Workaround a problem that on iOS, clicking a button causes text selection being removed immediately.
+      setTimeout(() => {
+        if (!selectedText) {
+          this.lastSelectedText = null;
+          this.setState({ showSearchSelectedTextButton: false });
+        } else {
+          this.lastSelectedText = selectedText;
+          this.setState({ showSearchSelectedTextButton: true });
+        }
+      }, 50);
     };
   }
 
@@ -134,7 +145,7 @@ class _EntryPage extends React.Component<PageProps, State> {
 
             <IonButton hidden={!this.state.showSearchSelectedTextButton} fill="clear" slot='end' onClick={e => {
               this.props.history.push({
-                pathname: `${Globals.pwaUrl}/entry/entry/${this.getSelectedText()}`,
+                pathname: `${Globals.pwaUrl}/entry/entry/${this.lastSelectedText}`,
               });
 
               document.getSelection()?.removeAllRanges();
