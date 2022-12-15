@@ -105,7 +105,8 @@ https://myhpwa.github.io/dfb-dict
 </a>
 
 ## <a id='history'>版本歷史</a>
-* PWA 1.1.1:
+* PWA 1.2.0:
+  * [新增] 定義頁搜尋選取字定義鈕。
   * [修正] 錯字。
 
 * MAS 1.0.1:

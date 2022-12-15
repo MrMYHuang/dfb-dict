@@ -2,7 +2,7 @@ import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, withIonLifeCycle, IonToast, IonButton, IonIcon } from '@ionic/react';
 import { RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { arrowBack, bookmark, shareSocial } from 'ionicons/icons';
+import { arrowBack, bookmark, searchCircle, shareSocial } from 'ionicons/icons';
 import { withTranslation, WithTranslation } from 'react-i18next';
 
 import { Bookmark } from '../models/Bookmark';
@@ -22,6 +22,7 @@ interface Props extends WithTranslation {
 
 interface State {
   entry: DictEntry;
+  showSearchSelectedTextButton: boolean;
   showToast: boolean;
   toastMessage: string;
   showUnlockToast: boolean;
@@ -45,16 +46,45 @@ class _EntryPage extends React.Component<PageProps, State> {
           def: '',
         }
       } as DictEntry,
+      showSearchSelectedTextButton: false,
       showToast: false,
       toastMessage: '',
       showUnlockToast: false,
       unlockToastMessage: '',
     };
+
+    document.onselectionchange = () => {
+      this.setState({ showSearchSelectedTextButton: this.getSelectedText() !== null });
+    };
+  }
+
+  getSelectedText() {
+    const sel = document.getSelection();
+    if (!sel || sel.rangeCount < 1) return null;
+
+    const selText = sel.getRangeAt(0).toString();
+
+    if (selText.length < 1) return null;
+
+    return selText;
   }
 
   async ionViewDidEnter() {
     const entry = await this.getQuote();
-    this.setState({ entry });
+    if (!entry) {
+      this.setState({
+        entry: {
+          form: ``,
+          sense: {
+            usg: `❌`,
+            def: `找不到單辭「${this.props.match.params.id}」`,
+            xr: [],
+          }
+        }
+      });
+    } else {
+      this.setState({ entry });
+    }
   }
 
   ionViewWillLeave() {
@@ -77,7 +107,7 @@ class _EntryPage extends React.Component<PageProps, State> {
     });
 
     const dictEntries = await OfflineDb.getDictEntries();
-    return dictEntries.find(entry => entry.form === this.props.match.params.id)!;
+    return dictEntries.find(entry => entry.form === this.props.match.params.id);
   }
 
   addBookmarkHandler() {
@@ -101,6 +131,16 @@ class _EntryPage extends React.Component<PageProps, State> {
             </IonButton>
 
             <IonTitle className='uiFont'>{this.props.t('Definition')}</IonTitle>
+
+            <IonButton hidden={!this.state.showSearchSelectedTextButton} fill="clear" slot='end' onClick={e => {
+              this.props.history.push({
+                pathname: `${Globals.pwaUrl}/entry/entry/${this.getSelectedText()}`,
+              });
+
+              document.getSelection()?.removeAllRanges();
+            }}>
+              <IonIcon icon={searchCircle} slot='icon-only' />
+            </IonButton>
 
             <IonButton fill="clear" slot='end' onClick={e => {
               this.addBookmarkHandler();
