@@ -11,6 +11,7 @@ import {
   IonToast,
   setupIonicReact,
   IonLoading,
+  isPlatform,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { connect, Provider } from 'react-redux';
@@ -134,6 +135,13 @@ class _AppOrig extends React.Component<AppOrigProps, State> {
       }
     });
     electronBackendApi?.send("toMain", { event: 'ready' });
+
+    // Disable browser callout.
+    if (isPlatform('android')) {
+      window.oncontextmenu = Globals.disableAndroidChromeCallout;
+    } else if (isPlatform('ios')) {
+      document.ontouchend = Globals.disableIosSafariCallout.bind(window);
+    }
 
     // ----- Initializing UI settings -----
     // Apply the theme setting.
