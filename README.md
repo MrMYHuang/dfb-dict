@@ -105,6 +105,9 @@ https://myhpwa.github.io/dfb-dict
 </a>
 
 ## <a id='history'>版本歷史</a>
+* PWA 1.2.3:
+  * [優化] 定義頁固定查尋字辭位置。
+
 * PWA 1.2.2:
   * [修正] 手機 app 無法選擇文字。
   * [修正] 手機 app 選擇文字不顯示工具列。
