@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, withIonLifeCycle, IonToast, IonButton, IonIcon, IonInput } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, withIonLifeCycle, IonToast, IonButton, IonIcon } from '@ionic/react';
 import { RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { shareSocial } from 'ionicons/icons';
@@ -59,32 +59,6 @@ class _EntryPage extends React.Component<PageProps, State> {
         <IonContent>
 
           <div className='uiFont' style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', padding: '0px 20px' }}>
-            <div>
-              <div style={{ padding: '20px 0px' }}>
-                <IonInput className='uiFont' inputmode='numeric' value={this.state.customQuoteId}
-                  onIonChange={(ev) => {
-                    this.setState({ customQuoteId: `${ev.target.value}` })
-                  }}>No.&nbsp;</IonInput>
-              </div>
-              <div style={{ textAlign: 'center' }}>
-                <IonButton className='uiFont' fill='outline' shape='round' size='large' onClick={async () => {
-                  const dictEntries = await OfflineDb.getDictEntries();
-                  const totalEntries = dictEntries.length;
-                  const entryId = +this.state.customQuoteId - 1;
-                  if (isNaN(entryId) || 0 > entryId || entryId > totalEntries - 1) {
-                    this.setState({ showToast: true, toastMessage: `請輸入介於1到${totalEntries}之間的數字` });
-                    return;
-                  }
-
-                  const form = dictEntries[entryId].form;
-
-                  this.props.history.push(`${Globals.pwaUrl}/entry/entry/${form}`);
-                }}>{this.props.t('SelectByNumber')}</IonButton>
-              </div>
-            </div>
-
-            <div className='uiFont'>---------- or ----------</div>
-
             <div style={{ padding: '20px 0px' }}>
               <IonButton className='uiFont' fill='outline' shape='round' size='large' onClick={async () => {
                 this.props.history.push(`${Globals.pwaUrl}/search`);

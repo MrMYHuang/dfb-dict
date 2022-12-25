@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react';
-import { IonContent, IonHeader, IonPage, IonToolbar, withIonLifeCycle, IonButton, IonIcon, IonSearchbar, IonList, IonItem, IonLabel, IonToast, IonTitle, IonInfiniteScroll, IonInfiniteScrollContent } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonToolbar, withIonLifeCycle, IonButton, IonIcon, IonList, IonItem, IonLabel, IonToast, IonTitle, IonInfiniteScroll, IonInfiniteScrollContent, IonInput } from '@ionic/react';
 import { RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withTranslation, WithTranslation } from 'react-i18next';
 
 import Globals from '../Globals';
-import { shareSocial } from 'ionicons/icons';
+import { search, shareSocial } from 'ionicons/icons';
 import { Settings } from '../models/Settings';
 import OfflineDb, { DictEntry } from '../OfflineDb';
 
@@ -30,7 +30,6 @@ interface State {
 }
 
 class _SearchPage extends React.Component<PageProps, State> {
-  searchBarRef: React.RefObject<HTMLIonSearchbarElement>;
   constructor(props: any) {
     super(props);
     this.state = {
@@ -44,7 +43,6 @@ class _SearchPage extends React.Component<PageProps, State> {
       showToast: false,
       toastMessage: '',
     }
-    this.searchBarRef = React.createRef<HTMLIonSearchbarElement>();
     this.filteredData = [];
   }
 
@@ -128,6 +126,20 @@ class _SearchPage extends React.Component<PageProps, State> {
     return rows;
   }
 
+  get searchInputEmpty() {
+    return this.state.keyword === '' || this.state.keyword === undefined;
+  }
+
+  clickToSearch() {
+    if (this.state.keyword === this.props.match.params.keyword) {
+      this.search(true);
+    } else {
+      this.props.history.push({
+        pathname: `${Globals.pwaUrl}/search/${this.state.keyword}`,
+      });
+    }
+  }
+
   render() {
     return (
       <IonPage>
@@ -143,31 +155,37 @@ class _SearchPage extends React.Component<PageProps, State> {
           </IonToolbar>
         </IonHeader>
         <IonContent>
-          <IonSearchbar ref={this.searchBarRef} placeholder={this.props.t('PressEnter')} value={this.state.keyword}
-            onIonClear={ev => {
-              this.props.history.push({
-                pathname: `${Globals.pwaUrl}/search`,
-              });
-            }}
-            onKeyUp={(ev: any) => {
-              const value = ev.target.value;
-              this.setState({ keyword: value }, () => {
-                if (value === '') {
-                } else if (ev.key === 'Enter') {
-                  if (value === this.props.match.params.keyword) {
-                    this.search(true);
-                  } else {
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <IonInput className='uiFont' placeholder={this.props.t('inputWord')} value={this.state.keyword}
+              clearInput={(this.state.keyword?.length || 0) > 0}
+              onKeyUp={(ev: any) => {
+                const value = ev.target.value;
+                this.setState({ keyword: value }, () => {
+                  if (ev.key === 'Enter') {
+                    this.clickToSearch();
+                  }
+                });
+              }}
+              onIonChange={(ev: any) => {
+                const value = ev.target.value;
+                this.setState({ keyword: value }, () => {
+                  if (value === '') {
                     this.props.history.push({
-                      pathname: `${Globals.pwaUrl}/search/${value}`,
+                      pathname: `${Globals.pwaUrl}/search`,
                     });
                   }
-                }
-              });
-            }}
-          />
+                });
+              }}
+            />
+            <IonButton fill='outline' size='large' onClick={() => {
+              this.clickToSearch();
+            }}>
+              <IonIcon slot='icon-only' icon={search} />
+            </IonButton>
+          </div>
 
           {
-            this.props.match.params.keyword == null || this.state.searches.length < 1 || (this.props.settings.dictionaryHistory.length > 0 && (this.state.keyword === '' || this.state.keyword === undefined)) ?
+            this.props.match.params.keyword == null ?
               <>
                 <div className='uiFont' style={{ color: 'var(--ion-color-primary)' }}>{this.props.t('SearchHistory')}</div>
                 <IonList>
@@ -201,19 +219,24 @@ class _SearchPage extends React.Component<PageProps, State> {
                 </div>
               </>
               :
-              <IonList>
-                {this.getRows()}
-                <IonInfiniteScroll threshold="100px"
-                  disabled={!this.state.isScrollOn}
-                  onIonInfinite={(ev: CustomEvent<void>) => {
-                    this.search();
-                    (ev.target as HTMLIonInfiniteScrollElement).complete();
-                  }}>
-                  <IonInfiniteScrollContent
-                    loadingText={`${this.props.t('Loading')}...`}>
-                  </IonInfiniteScrollContent>
-                </IonInfiniteScroll>
-              </IonList>
+              this.state.searches.length < 1 ?
+                <IonLabel className='uiFont'>
+                  {this.props.t('wordNotFound')}
+                </IonLabel>
+                :
+                <IonList>
+                  {this.getRows()}
+                  <IonInfiniteScroll threshold="100px"
+                    disabled={!this.state.isScrollOn}
+                    onIonInfinite={(ev: CustomEvent<void>) => {
+                      this.search();
+                      (ev.target as HTMLIonInfiniteScrollElement).complete();
+                    }}>
+                    <IonInfiniteScrollContent
+                      loadingText={`${this.props.t('Loading')}...`}>
+                    </IonInfiniteScrollContent>
+                  </IonInfiniteScroll>
+                </IonList>
           }
 
           <IonToast
