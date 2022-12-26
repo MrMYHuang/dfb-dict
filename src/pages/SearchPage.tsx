@@ -70,10 +70,16 @@ class _SearchPage extends React.Component<PageProps, State> {
   page = 0;
   rows = 20;
   filteredData: DictEntry[];
+  loadMoreLock = false;
   async search(newSearch: boolean = false) {
     if (this.props.match.params.keyword == null || this.props.match.params.keyword !== this.state.keyword) {
       return;
     }
+
+    if (this.loadMoreLock) {
+      return;
+    }
+    this.loadMoreLock = true;
 
     if (newSearch) {
       const dictEntries = await OfflineDb.getDictEntries();
@@ -84,12 +90,16 @@ class _SearchPage extends React.Component<PageProps, State> {
 
     console.log(`Loading page ${this.page}`);
 
-    const searches = this.filteredData.slice(this.page * this.rows, (this.page + 1) * this.rows);
+    const newAppendSearchesRangeEnd = Math.min((this.page + 1) * this.rows, this.filteredData.length);
+    const newAppendSearches = this.filteredData.slice(this.page * this.rows, newAppendSearchesRangeEnd);
+    const newSearches = newSearch ? newAppendSearches : [...this.state.searches, ...newAppendSearches];
 
-    this.page += 1;
     this.setState({
-      searches: newSearch ? searches : [...this.state.searches, ...searches],
-      isScrollOn: this.state.searches.length < this.filteredData.length,
+      searches: newSearches,
+      isScrollOn: newSearches.length < this.filteredData.length,
+    }, () => {
+      this.page += 1;
+      this.loadMoreLock = false;
     });
 
     if (newSearch) {
@@ -124,10 +134,6 @@ class _SearchPage extends React.Component<PageProps, State> {
       );
     });
     return rows;
-  }
-
-  get searchInputEmpty() {
-    return this.state.keyword === '' || this.state.keyword === undefined;
   }
 
   clickToSearch() {
