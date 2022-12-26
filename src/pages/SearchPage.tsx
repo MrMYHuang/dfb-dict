@@ -115,6 +115,16 @@ class _SearchPage extends React.Component<PageProps, State> {
     return true;
   }
 
+  clickToSearch() {
+    if (this.state.keyword === this.props.match.params.keyword) {
+      this.search(true);
+    } else {
+      this.props.history.push({
+        pathname: `${Globals.pwaUrl}/search/${this.state.keyword}`,
+      });
+    }
+  }
+
   getRows() {
     const data = this.state.searches;
     let rows = new Array<ReactNode>();
@@ -134,16 +144,6 @@ class _SearchPage extends React.Component<PageProps, State> {
       );
     });
     return rows;
-  }
-
-  clickToSearch() {
-    if (this.state.keyword === this.props.match.params.keyword) {
-      this.search(true);
-    } else {
-      this.props.history.push({
-        pathname: `${Globals.pwaUrl}/search/${this.state.keyword}`,
-      });
-    }
   }
 
   render() {
