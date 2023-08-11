@@ -161,6 +161,9 @@ class _SearchPage extends React.Component<PageProps, State> {
           </IonToolbar>
         </IonHeader>
         <IonContent>
+          <br />{/* This additional tag works around an issue of the following IonInput.
+          It causes on iOS 15-16, the first tap of the IonInput doesn't correctly focus on it, so
+          keyboard input becomes invalid! */}
           <div style={{ display: 'flex', flexDirection: 'row' }}>
             <IonInput className='uiFont' placeholder={this.props.t('inputWord')} value={this.state.keyword}
               clearInput={(this.state.keyword?.length || 0) > 0}

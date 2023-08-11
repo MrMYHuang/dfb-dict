@@ -105,6 +105,9 @@ https://myhpwa.github.io/dfb-dict
 </a>
 
 ## <a id='history'>版本歷史</a>
+* PWA 1.3.2:
+  * [修正] 在 iOS 15-16, 文字輸入方塊第一次點擊無法對焦的問題。
+
 * PWA 1.3.1:
   * [修正] 分頁讀取搜尋結果未依序顯示。
 
