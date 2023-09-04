@@ -90,7 +90,7 @@ https://myhpwa.github.io/dfb-dict
 </a>
 
 #### Android - 使用 Google Play Store
-<a href='https://play.google.com/store/apps/details?id=io.github.myhpwa.dfbdict' target='_blank'>
+<a href='https://play.google.com/store/apps/details?id=io.github.myhpwa.dfbdict2' target='_blank'>
 <img width="auto" height='60px' alt='Google Play立即下載' src='https://github.com/MrMYHuang/dfb-dict/raw/main/docs/images/zh-tw_badge_web_generic.png'/>
 </a>
 
