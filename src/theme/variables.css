@@ -10,6 +10,10 @@
     --print-background: white;
 }
 
+[hidden] {
+    display: none !important;
+}
+
 html {
     -webkit-text-size-adjust: none;
     text-size-adjust: none;

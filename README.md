@@ -105,6 +105,9 @@ https://myhpwa.github.io/dfb-dict
 </a>
 
 ## <a id='history'>版本歷史</a>
+* PWA 1.4.0:
+  * [新增] 定義頁選字後，出現複製鈕。 
+
 * PWA 1.3.2:
   * [修正] 在 iOS 15-16, 文字輸入方塊第一次點擊無法對焦的問題。
 

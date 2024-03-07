@@ -2,7 +2,7 @@ import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, withIonLifeCycle, IonToast, IonButton, IonIcon } from '@ionic/react';
 import { RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { arrowBack, bookmark, searchCircle, shareSocial } from 'ionicons/icons';
+import { arrowBack, bookmark, copy, searchCircle, shareSocial } from 'ionicons/icons';
 import { withTranslation, WithTranslation } from 'react-i18next';
 
 import { Bookmark } from '../models/Bookmark';
@@ -142,6 +142,12 @@ class _EntryPage extends React.Component<PageProps, State> {
             </IonButton>
 
             <IonTitle className='uiFont'>{this.props.t('Definition')}</IonTitle>
+
+            <IonButton hidden={!this.state.showSearchSelectedTextButton} fill="clear" slot='end' onClick={e => {
+              Globals.copyToClipboard(`${this.lastSelectedText}`);
+            }}>
+              <IonIcon icon={copy} slot='icon-only' />
+            </IonButton>
 
             <IonButton hidden={!this.state.showSearchSelectedTextButton} fill="clear" slot='end' onClick={e => {
               this.props.history.push({
