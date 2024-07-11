@@ -206,7 +206,7 @@ class _AppOrig extends React.Component<AppOrigProps, State> {
   }
 
   async openDict() {
-    this.props.dispatch({
+    await this.props.dispatch({
       type: "TMP_SET_KEY_VAL",
       key: 'loadingData',
       val: true,
@@ -221,11 +221,13 @@ class _AppOrig extends React.Component<AppOrigProps, State> {
       }).catch((error) => {
         this.setState({ showToast: true, toastMessage: `Error! ${error}` });
       }).finally(() => {
-        this.props.dispatch({
-          type: "TMP_SET_KEY_VAL",
-          key: 'loadingData',
-          val: false,
-        });
+        setTimeout(() => {
+          this.props.dispatch({
+            type: "TMP_SET_KEY_VAL",
+            key: 'loadingData',
+            val: false,
+          });
+        }, 1);
       });
     });
   }

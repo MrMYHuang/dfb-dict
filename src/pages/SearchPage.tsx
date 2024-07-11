@@ -168,12 +168,9 @@ class _SearchPage extends React.Component<PageProps, State> {
             <IonInput className='uiFont' placeholder={this.props.t('inputWord')} value={this.state.keyword}
               clearInput={(this.state.keyword?.length || 0) > 0}
               onKeyUp={(ev: any) => {
-                const value = ev.target.value;
-                this.setState({ keyword: value }, () => {
-                  if (ev.key === 'Enter') {
-                    this.clickToSearch();
-                  }
-                });
+                if (ev.key === 'Enter') {
+                  this.clickToSearch();
+                }
               }}
               onIonChange={(ev: any) => {
                 const value = ev.target.value;
