@@ -3,7 +3,7 @@
   "homepage": "/dfb-dict",
   "productName": "佛學大辭典",
   "pwaVersion": "1.4.2",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "license": "MIT",
   "keywords": [
     "丁福保佛學大辭典",
@@ -65,7 +65,7 @@
     "@types/uuid": "^8.3.4",
     "axios": "^0.21.4",
     "customize-cra": "^1.0.0",
-    "electron": "^22.0.0",
+    "electron": "^31.4.0",
     "electron-builder": "^23.3.3",
     "history": "^4.10.1",
     "ionicons": "^7.4.0",

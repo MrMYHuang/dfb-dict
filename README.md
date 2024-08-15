@@ -105,6 +105,10 @@ https://myhpwa.github.io/dfb-dict
 </a>
 
 ## <a id='history'>版本歷史</a>
+* Snap apps 1.1.0:
+  * [修正] Snap 版匯入／匯出存取權限問題.
+  * [優化] 升級至 Electron 31.3.1。
+
 * PWA 1.4.2:
   * [修正] 在 iOS 上，搜尋頁用注音輸入至最後一字，選完字後，再點擊搜尋鈕，會造成最後一字被還原回注音的問題。
   * [修正] iOS 啟動 app 後卡在載入中。

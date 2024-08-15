@@ -21,6 +21,14 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="1.1.0" date="2024-08-15">
+      <description>
+        <ul>
+          <li>Snap 版匯入／匯出存取權限問題。</li>
+          <li>升級至 Electron 31.3.1.</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.0.0" date="2022-10-19">
       <description>
         <ul>
