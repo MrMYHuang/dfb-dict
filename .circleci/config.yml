@@ -16,6 +16,11 @@ jobs:
       - run:
           name: Build snap
           command: |
+            sudo apt update
+            sudo apt install -y snapd
+            sudo snap install lxd
+            sudo snap install --classic snapcraft
+            sudo lxd init --auto --storage-backend zfs
             npm run dist-snap
 
       - persist_to_workspace:
@@ -35,6 +40,11 @@ jobs:
       - run:
           name: Build snap
           command: |
+            sudo apt update
+            sudo apt install -y snapd
+            sudo snap install lxd
+            sudo snap install --classic snapcraft
+            sudo lxd init --auto --storage-backend zfs
             npm run dist-snap
 
       - persist_to_workspace:
@@ -53,7 +63,11 @@ jobs:
 
       - run:
           name: Push/release snap
-          command: find dist -name "*.snap" | xargs -I {} snapcraft upload {} --release beta
+          command: |
+            sudo apt update
+            sudo apt install -y snapd
+            sudo snap install --classic snapcraft
+            find dist -name "*.snap" | xargs -I {} snapcraft upload {} --release beta
 
   build-appImage-arm64:
     <<: *defaults
