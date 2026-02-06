@@ -2,7 +2,7 @@
   "name": "dfb-dict",
   "homepage": "/dfb-dict",
   "productName": "佛學大辭典",
-  "pwaVersion": "1.4.2",
+  "pwaVersion": "1.5.0",
   "version": "1.1.0",
   "license": "MIT",
   "keywords": [
@@ -24,9 +24,9 @@
   ],
   "main": "buildElectron/main.js",
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build && zip -r public/assets.zip assets && node ./tools/build.js",
-    "test": "react-app-rewired test",
+    "start": "vite",
+    "build": "zip -r public/assets.zip assets && vite build && node ./tools/build.js",
+    "test": "vitest",
     "eject": "react-scripts eject",
     "clear": "rm -rf buildElectron/locales buildElectron/*.js",
     "build-electron": "npm run clear && tsc -b tsconfigElectron.json",
@@ -36,7 +36,8 @@
     "publish-snap": "snapcraft upload --release=stable dist/*.snap",
     "icons-mas": "cd buildElectron && iconutil -c icns icon.iconset",
     "dist-mas": "npm run build-electron-store && electron-builder -m mas --universal -c electronBuilderConfigs/mas.json",
-    "dist-mas-dev": "npm run build-electron-store && electron-builder -m mas-dev --arm64 -c electronBuilderConfigs/masDev.json"
+    "dist-mas-dev": "npm run build-electron-store && electron-builder -m mas-dev --arm64 -c electronBuilderConfigs/masDev.json",
+    "preview": "vite preview"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -54,7 +55,7 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^14.1.0",
     "@types/jest": "^27.4.1",
-    "@types/node": "^17.0.23",
+    "@types/node": "^20.11.30",
     "@types/qrcode": "^1.4.2",
     "@types/react": "18.0.9",
     "@types/react-dom": "^18",
@@ -64,23 +65,19 @@
     "@types/semver": "^7.3.7",
     "@types/uuid": "^8.3.4",
     "axios": "^0.21.4",
-    "customize-cra": "^1.0.0",
     "electron": "^31.4.0",
     "electron-builder": "^23.3.3",
     "history": "^4.10.1",
     "ionicons": "^7.4.0",
     "memfs": "^3.4.4",
-    "node-polyfill-webpack-plugin-myh": "1.1.6",
     "qrcode": "^1.5.0",
     "query-string": "^7.1.1",
     "react": "18.1",
-    "react-app-rewired": "^2.2.1",
     "react-dom": "^18.1.0",
     "react-i18next": "^11.18.4",
     "react-redux": "^7",
     "react-router": "^5.2.1",
     "react-router-dom": "^5.3.0",
-    "react-scripts": "^5.0.1",
     "react-test-renderer": "^18.1.0",
     "typescript": "^4.6.3",
     "uuid": "^8.3.2",
@@ -96,7 +93,13 @@
     "workbox-routing": "^5.1.4",
     "workbox-strategies": "^5.1.4",
     "workbox-streams": "^5.1.4",
-    "zip.js-myh": "^2.4.16"
+    "zip.js-myh": "^2.4.16",
+    "vite": "^5.4.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "vite-plugin-pwa": "^0.20.0",
+    "vitest": "^2.1.0",
+    "jsdom": "^25.0.0",
+    "vite-plugin-node-polyfills": "^0.22.0"
   },
   "browserslist": {
     "production": [

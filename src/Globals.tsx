@@ -2,7 +2,7 @@ import { isPlatform } from '@ionic/react';
 import axios from 'axios';
 import IndexedDbZipFuncs from './IndexedDbZipFuncs';
 
-const pwaUrl = process.env.PUBLIC_URL || '';
+const pwaUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 const bugReportApiUrl = 'https://vh6ud1o56g.execute-api.ap-northeast-1.amazonaws.com/bugReportMailer';
 
 let log = '';
