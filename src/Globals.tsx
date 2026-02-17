@@ -3,7 +3,7 @@ import axios from 'axios';
 import IndexedDbZipFuncs from './IndexedDbZipFuncs';
 
 const pwaUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
-const bugReportApiUrl = 'https://vh6ud1o56g.execute-api.ap-northeast-1.amazonaws.com/bugReportMailer';
+const bugReportApiUrl = 'https://bug-report.mrmyh.eu.org/bugReportMailer';
 
 let log = '';
 
